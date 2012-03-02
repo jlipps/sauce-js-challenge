@@ -7,7 +7,7 @@ Hopefully this demonstrates that I can:
 *   write README files in Markdown on Github
 *   do all the above while drinking beer. IPAs, even.
 
-Requirements
+Setup
 ===
 You must have sinatra installed:
 
