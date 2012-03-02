@@ -39,6 +39,14 @@ Album.loadGalleryData = function(url, callback) {
 };
 
 Album.initGallery = function(data) {
+    // Preload images to avoid ugly flashes on photo select
+    // (Uses jquery UI imageloader plugin)
+    var image_urls = [];
+    $.each(data.photos, function(i, p) {
+        image_urls.push(p.url);
+    });
+    $({}).imageLoader({images: image_urls, async: true});
+
     // Set the title
     $('#albumTitle').html(data.album.name);
 
