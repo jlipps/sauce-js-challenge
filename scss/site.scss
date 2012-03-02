@@ -5,7 +5,7 @@ $dark_border: #CBC6C2;
 $dark_text: #3B3B3B;
 $mid_text: #6E6E6E;
 $light_text: #999;
-$site_width: 700px;
+$site_width: 936px;
 $f_normal: 13px;
 $f_large: 20px;
 $f_big: 26px;
@@ -21,6 +21,13 @@ $f_big: 26px;
 @mixin shadow($h: 0px, $v: 0px, $d: 6px, $r: 60, $g: 60, $b: 60, $a: 0.4) {
     -webkit-box-shadow: $h $v $d rgba($r, $g, $b, $a);
     -moz-box-shadow: $h $v $d rgba($r, $g, $b, $a);
+}
+
+@mixin gradient_bg($def_color, $start_color, $end_color) {
+  background: $def_color; /* for non-css3 browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start_color}', endColorstr='#{$end_color}'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from($start_color), to($end_color)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  $start_color,  $end_color); /* for firefox 3.6+ */
 }
 
 @mixin rounded_top($rad) {
@@ -63,4 +70,31 @@ $f_big: 26px;
 @mixin base_type {
   color: $mid_text;
   font-size: 12px;
+}
+
+// HTML STYLES
+body {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+// SITE COMPONENTS
+
+header {
+  @include gradient_bg(#555556, #797978, #2f2f2f);
+  width: 100%;
+  height: 56px;
+}
+
+#main {
+  @include gradient_bg(#cfcfcf, #eaeaea, #b8b7b8);
+  width: 100%;
+  min-height: 200px;
+}
+
+footer {
+  @include gradient_bg(#5c646e, #6f767c, #57626d);
+  width: 100%;
+  height: 124px;
 }
