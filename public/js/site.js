@@ -1,23 +1,34 @@
 // Namespace our app
 var Album = window.Album || {};
+
+// Set a variable for the ID of the selected photo
+// Important we set it to false here rather than 0 since we do a check
+// to make sure we can deselect something down in Album.selectPhoto
 Album.selectedPhotoId = false;
 
-// On document ready
+// On document ready, do this stuff
 $(function() {
-    Album.resizeMainContent();
-    Album.trackWindowResize();
+    Album.resizeMainContent(); // for using the entire browser window
+    Album.trackWindowResize(); // make the layout adapt to scrolling
     Album.loadGalleryData('js/gallery_json.js', Album.initGallery);
     Album.bindNavButtons();
 });
 
 Album.resizeMainContent = function() {
-    var headerAndFooter = $('header').height() + $('footer').outerHeight();
+    var headerAndFooter = $('#header').height() + $('#footer').outerHeight();
     var footerBorderWidth = 1; // Silly CSS box model
     // Make height of #main fill the rest of the page
     $('#main').css({
-        height: ($(window).height() - headerAndFooter - footerBorderWidth) + 'px'
+        height: (
+            $(window).height() -
+            headerAndFooter -
+            footerBorderWidth
+        ) + 'px'
     });
 
+    // We also want to size the main photo image so that it takes up
+    // the remaining height in the main content area. To do this we
+    // need to take into account some styling options
     var selectedPhotoMargin = 17 + 17;
     var selectedPhotoBorder = 8 + 8;
     $('#selectedPhotoCont').css({
@@ -149,8 +160,6 @@ Album.getIndexForId = function(id) {
 };
 
 Album.bindNavButtons = function() {
-
-
     $('#nextButton').click(function() {
         var curIndex = Album.getIndexForId(Album.selectedPhotoId);
         curIndex++;
@@ -169,5 +178,3 @@ Album.bindNavButtons = function() {
         Album.selectPhoto(Album.photos[curIndex].id);
     });
 };
-
-
