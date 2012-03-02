@@ -1,11 +1,3 @@
-$mid_bg: #F3EEEA;
-$light_bg: #F8F4F2;
-$splash_color: #C90006;
-$dark_border: #CBC6C2;
-$dark_text: #3B3B3B;
-$mid_text: #6E6E6E;
-$light_text: #999;
-$site_width: 936px;
 $f_normal: 13px;
 $f_large: 20px;
 $f_big: 26px;
@@ -31,7 +23,6 @@ $f_big: 26px;
 
 @mixin base_type {
   font-family: Tahoma, Verdana, sans-serif;
-  color: $mid_text;
   font-size: $f_normal;
 }
 
