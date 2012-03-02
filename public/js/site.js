@@ -5,6 +5,7 @@ var Album = window.Album || {};
 $(function() {
     Album.resizeMainContent();
     Album.trackWindowResize();
+    Album.loadGalleryData('js/gallery_json.js');
 });
 
 Album.resizeMainContent = function() {
@@ -18,4 +19,13 @@ Album.resizeMainContent = function() {
 
 Album.trackWindowResize = function() {
     $(window).resize(Album.resizeMainContent);
-}
+};
+
+Album.loadGalleryData = function(url) {
+    $.getJSON(url, function(data) {
+        Album.gallery_data = data;
+        console.log(Album.gallery_data);
+    });
+};
+
+
