@@ -424,6 +424,9 @@ td {
   h2, h3 {
     page-break-after: avoid; } }
 body {
+  font-family: Tahoma, Verdana, sans-serif;
+  color: #6e6e6e;
+  font-size: 13px;
   width: 100%;
   height: 100%;
   text-align: center; }
@@ -439,6 +442,10 @@ header {
   /* for firefox 3.6+ */
   width: 100%;
   height: 56px; }
+  header #albumTitle {
+    font-size: 26px;
+    color: #fff;
+    padding-top: 10px; }
 
 #main {
   background: #cfcfcf;
@@ -450,7 +457,8 @@ header {
   background: -moz-linear-gradient(top, #eaeaea, #b8b7b8);
   /* for firefox 3.6+ */
   width: 100%;
-  min-height: 200px; }
+  min-height: 200px;
+  border-bottom: 1px solid #3c454e; }
 
 footer {
   background: #5c646e;
@@ -461,5 +469,6 @@ footer {
   /* for webkit browsers */
   background: -moz-linear-gradient(top, #6f767c, #57626d);
   /* for firefox 3.6+ */
+  border-top: 1px solid #8b8e91;
   width: 100%;
   height: 124px; }
