@@ -1,0 +1,66 @@
+$mid_bg: #F3EEEA;
+$light_bg: #F8F4F2;
+$splash_color: #C90006;
+$dark_border: #CBC6C2;
+$dark_text: #3B3B3B;
+$mid_text: #6E6E6E;
+$light_text: #999;
+$site_width: 700px;
+$f_normal: 13px;
+$f_large: 20px;
+$f_big: 26px;
+
+@import 'reset';
+
+@mixin opacity($value) {
+    opacity: $value;
+    filter: alpha(opacity=#{$value*100});
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value*100})";
+}
+
+@mixin shadow($h: 0px, $v: 0px, $d: 6px, $r: 60, $g: 60, $b: 60, $a: 0.4) {
+    -webkit-box-shadow: $h $v $d rgba($r, $g, $b, $a);
+    -moz-box-shadow: $h $v $d rgba($r, $g, $b, $a);
+}
+
+@mixin rounded_top($rad) {
+    -webkit-border-top-left-radius: $rad;
+    -webkit-border-top-right-radius: $rad;
+    -moz-border-radius-topleft: $rad;
+    -moz-border-radius-topright: $rad;
+    border-top-left-radius: $rad;
+    border-top-right-radius: $rad;
+}
+
+@mixin rounded_bottom($rad) {
+    -webkit-border-bottom-left-radius: $rad;
+    -webkit-border-bottom-right-radius: $rad;
+    -moz-border-radius-bottomleft: $rad;
+    -moz-border-radius-bottomright: $rad;
+    border-bottom-left-radius: $rad;
+    border-bottom-right-radius: $rad;
+}
+
+@mixin roundedx($rad) {
+    @include rounded_top($rad);
+    @include rounded_bottom($rad);
+}
+
+@mixin rounded($def_radius: 10px) {
+    @include roundedx($def_radius);
+}
+
+@mixin clear {
+    &:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+}
+
+@mixin base_type {
+  color: $mid_text;
+  font-size: 12px;
+}
